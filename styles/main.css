@@ -71,21 +71,187 @@ input {
   font-style: normal;
 }
 body {
-  background-color: #f5bfaf;
+  background-color: #fff1e2;
+  background-image: url("../assets/photo-31.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #f5bfaf;
+}
+
+a {
+  color: #f5bfaf;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 80rem;
+  margin: auto;
+}
+
+.row, .row > div[class*=col-] {
+  display: flex;
+  flex: 0 auto;
+  justify-content: center;
+}
+
+.col-centered {
+  justify-content: center; /* center flex items horizontally */
+  align-items: center; /* center single-line flex items vertically */
+  align-content: center; /* center multi-line flex items vertically */
+}
+
+.col-1 {
+  width: 8.33%;
+}
+
+.col-2 {
+  width: 16.66%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.33%;
+}
+
+.col-5 {
+  width: 41.66%;
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-7 {
+  width: 58.33%;
+}
+
+.col-8 {
+  width: 66.66%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.33%;
+}
+
+.col-11 {
+  width: 91.66%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+div[class*=col-] {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "judson", "serif";
   font-size: 1.5rem;
+  font-weight: bold;
   color: #fff1e2;
 }
 
-.subtitle {
+.subtitle, .button {
   font-family: "Boldfinger", sans-serif;
   font-weight: bold;
   text-transform: uppercase;
   line-height: 1.2;
   color: #f5bfaf;
+}
+
+.info-pane {
+  position: absolute;
+  bottom: 2rem;
+  left: 0;
+  right: 0;
+}
+
+.button {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  padding: 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  align-items: center;
+  height: 33%;
+}
+
+.button-primary {
+  background-color: #121c3e;
+  color: #f3b421;
+}
+
+.button-secondary {
+  background-color: #f3b421;
+  color: #121c3e;
+}
+
+.margin-vetical-small {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.margin-vertical-medium {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.margin-bottom-medium {
+  margin-bottom: 1rem;
+}
+
+.padding-top-large {
+  padding-top: 3rem;
+}
+
+.padding-medium {
+  padding: 2rem;
+}
+
+.padding-small {
+  padding: 1rem;
+}
+
+.red-background {
+  background-color: #bf3b15;
+}
+
+.rounded-borders {
+  border-radius: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=main.css.map */

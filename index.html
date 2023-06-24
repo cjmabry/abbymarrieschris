@@ -6,9 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Abby Marries Chris</title>
     <link rel="stylesheet" href="./styles/main.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
   </head>
-  <body>	
-	<h1>Hello, world!</h1>
+  <body>
+    <div class="row">
+      <div class="col-centered">
+        <img class="logo padding-top-large" src="/assets/logo.svg" alt="Abby and Chris are getting married!">
+      </div>"
+    </div>
+
+    <div class="container red-background rounded-borders padding-small info-pane text-center">
+      <div class="col-3 margin-vertical-medium">
+        <div class="margin-bottom-medium">
+          <h1 class="subtitle">When</h1>
+          <h2>September 16, 2023</h2>
+        </div>
+  
+        <h1 class="subtitle">Where</h1>
+        <a href="https://goo.gl/maps/MChBSeecQtTxUCMq8"><h2>
+          615 Buck Mountail Trail, </br>
+          Cookeville, TN, 38501
+        </h2></a>
+      </div>
+
+      <div class="col-6">
+        <div class="full-size rounded-borders" id="map"></div>
+      </div>
+
+      <div class="col-3 space-between">
+        <a href="#" class="button button-primary full-width margin-bottom-medium">RSVP</a>
+        <a href="#" class="button button-secondary full-width margin-bottom-medium">Registry</a>
+        <a href="#" class="button button-primary full-width">Schedule</a>
+      </div>
+    </div>
+
+    <!-- Scripts! -->
+    <script src="./scripts/main.js"></script>
   </body>
 </html>
 
