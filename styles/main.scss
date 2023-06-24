@@ -1,0 +1,34 @@
+@use 'reset.scss';
+@use 'fonts.scss';
+
+// Colors
+$dark-green:#052e1c;
+$light-green:#61785e;
+$dark-blue:#121c3e;
+$light-blue:#536ce5;
+$red:#bf3b15;
+$yellow:#f3b421;
+$peach:#f5bfaf;
+$not-white:#fff1e2;
+
+body {
+	background-color: $peach;
+}
+
+// Type
+h1, h2, h3, h4, h5, h6 {
+	font-family: "judson", "serif";
+	font-size: 1.5rem;
+	color: $not-white;
+}
+
+.subtitle {
+	font-family: 'Boldfinger', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 1.2;
+	color: $peach;
+}
+
+
+

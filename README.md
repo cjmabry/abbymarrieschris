@@ -1,2 +1,0 @@
-# abbymarrieschris
-Our wedding website.
