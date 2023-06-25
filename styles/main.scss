@@ -146,6 +146,16 @@ h1, h2, h3, h4, h5, h6 {
 	color: $dark-blue;
 }
 
+// Map
+.marker {
+	background-image: url('..assets/map-icon.png');
+	background-size: cover;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
 // Helpers
 .margin-vetical-small {
 	margin-top: 0.5rem;

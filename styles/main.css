@@ -203,6 +203,14 @@ h1, h2, h3, h4, h5, h6 {
   color: #121c3e;
 }
 
+.marker {
+  background-image: url("../assets/map-icon.png");
+  background-size: cover;
+  width: 29px;
+  height: 37px;
+  cursor: pointer;
+}
+
 .margin-vetical-small {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
