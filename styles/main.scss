@@ -17,6 +17,9 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	color: $peach;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -30,10 +33,18 @@ a {
 
 // Columns
 .container {
-	display: flex;
-	flex-wrap: wrap;
+	// display: flex;
+	// flex-wrap: wrap;
 	max-width: 80rem;
 	margin: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.row {
+	// width: 100%;
+	flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .row, .row > div[class*="col-"] {
@@ -95,6 +106,18 @@ a {
 	width: 100%;
 }
 
+// Mobile
+@media screen and (max-width: 800px) {
+	col-1, .col-2, .col-3, .col-4, .col-5, .col-6, col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+        width: 100%;
+    }
+}
+
+// Desktop
+@media screen and (max-width: 1000px) {
+	
+}
+
 div[class*="col-"] {
 	display: flex;
 	flex-direction: column;
@@ -111,9 +134,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .subtitle, .button {
 	font-family: 'Boldfinger', sans-serif;
-	font-weight: bold;
 	text-transform: uppercase;
 	line-height: 1.2;
+	font-weight: normal;
 	color: $peach;
 }
 
@@ -147,17 +170,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // Map
+.mapboxgl-map {
+	min-height: 200px;
+} 
+
 .marker {
-	background-image: url('..assets/map-icon.png');
+	background-image: url('../assets/map-icon.png');
 	background-size: cover;
-	width: 50px;
-	height: 50px;
+	width: 29px;
+	height: 37px;
 	border-radius: 50%;
 	cursor: pointer;
 }
 
 // Helpers
-.margin-vetical-small {
+.margin-vertical-small {
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
 }
@@ -208,3 +235,6 @@ h1, h2, h3, h4, h5, h6 {
 	justify-content: space-between;
 }
 
+.light-shadow {
+	box-shadow: 0px 3px 6px rgb(0 0 0 / 30%);
+}
