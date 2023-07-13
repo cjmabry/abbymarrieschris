@@ -41,7 +41,6 @@ table {
 }
 
 input {
-  -webkit-appearance: none;
   border-radius: 0;
 }
 
@@ -72,6 +71,10 @@ input {
 }
 body {
   background-color: #fff1e2;
+  color: #121c3e;
+}
+
+.photo-background {
   background-image: url("../assets/photo-31.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -179,7 +182,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "judson", "serif";
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fff1e2;
 }
 
 .subtitle, .button {
@@ -223,10 +225,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .marker {
-  background-image: url("../assets/map-icon.png");
+  background-image: url("..assets/map-icon.png");
   background-size: cover;
-  width: 29px;
-  height: 37px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -282,8 +284,8 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
 }
 
-.light-shadow {
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+.bg-white {
+  background-color: white;
 }
 
 /*# sourceMappingURL=main.css.map */
