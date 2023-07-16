@@ -2,27 +2,35 @@
 @use 'fonts.scss';
 
 // Colors
-$dark-green:#052e1c;
-$light-green:#61785e;
-$dark-blue:#121c3e;
-$light-blue:#536ce5;
-$red:#bf3b15;
-$yellow:#f3b421;
-$peach:#f5bfaf;
-$not-white:#fff1e2;
+$dark-green: #052e1c;
+$light-green: #61785e;
+$dark-blue: #121c3e;
+$light-blue: #536ce5;
+$red: #bf3b15;
+$yellow: #f3b421;
+$peach: #f5bfaf;
+$not-white: #fff1e2;
+
+html,
+body {
+	height: 100%;
+}
 
 body {
 	background-color: $not-white;
 	color: $dark-blue;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	min-height: 100%;
+	display: flex;
 }
 
 .photo-background {
-	background-image: url("../assets/photo-31.jpg");
+	background-image: url("../assets/photo-92-web.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	color: $peach;
+	background-position: center;
+	background-attachment: fixed;
 }
 
 a {
@@ -30,8 +38,9 @@ a {
 }
 
 .logo {
-	width: 150px;
+	width: 70%;
 	height: auto;
+	padding: 1rem 0;
 }
 
 // Columns
@@ -39,28 +48,36 @@ a {
 	// display: flex;
 	// flex-wrap: wrap;
 	max-width: 80rem;
-	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
 	padding-left: 1rem;
 	padding-right: 1rem;
+	flex: auto;
+	align-self: center;
 }
 
 .row {
 	// width: 100%;
 	flex-direction: row;
-    flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 
-.row, .row > div[class*="col-"] {
+.row,
+.row>div[class*="col-"] {
 	display: flex;
 	flex: 0 auto;
 	justify-content: center;
 }
 
 .col-centered {
-	justify-content: center;       /* center flex items horizontally */
-	align-items: center;           /* center single-line flex items vertically */
-	align-content: center;         /* center multi-line flex items vertically */
+	justify-content: center;
+	/* center flex items horizontally */
+	align-items: center;
+	/* center single-line flex items vertically */
+	align-content: center;
+	/* center multi-line flex items vertically */
 }
+
 .col-1 {
 	width: 8.33%
 }
@@ -110,16 +127,51 @@ a {
 }
 
 // Mobile
-@media screen and (max-width: 800px) {
-	col-1, .col-2, .col-3, .col-4, .col-5, .col-6, col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
-        width: 100%;
-    }
+@media screen and (max-width: 840px) {
+	col-1,
+	.col-2,
+	.col-3,
+	.col-4,
+	.col-5,
+	.col-6,
+	col-7,
+	.col-8,
+	.col-9,
+	.col-10,
+	.col-11,
+	.col-12 {
+		width: 100%;
+	}
+
+	.mobile-hide {
+		display: none !important;
+	}
+
+	.container {
+		max-width: 30rem;
+		// align-self: flex-end;
+		height: 100%;
+
+	}
+
+	.full-height-mobile {
+		height: 100%;
+	}
+
+	.col-4-mobile {
+		width: 33%;
+		background-color: transparent !important;
+	}
+
+	.info-wrapper {
+		background-color: $red;
+		border-radius: 1rem;
+		box-shadow: 0px 3px 6px rgb(0 0 0 / 30%);
+	}
 }
 
 // Desktop
-@media screen and (max-width: 1000px) {
-	
-}
+@media screen and (max-width: 1000px) {}
 
 div[class*="col-"] {
 	display: flex;
@@ -128,14 +180,20 @@ div[class*="col-"] {
 }
 
 // Type
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: "judson", "serif";
 	font-size: 1.5rem;
 	font-weight: bold;
 	// color: $not-white;
 }
 
-.subtitle, .button {
+.subtitle,
+.button {
 	font-family: 'Boldfinger', sans-serif;
 	text-transform: uppercase;
 	line-height: 1.2;
@@ -144,12 +202,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // Specifics
-.info-pane {
-	position: absolute;
-	bottom: 2rem;
-	left: 0;
-	right: 0;
-}
 
 .button {
 	text-align: center;
@@ -159,7 +211,6 @@ h1, h2, h3, h4, h5, h6 {
 	text-decoration: none;
 	border-radius: 8px;
 	align-items: center;
-	height: 33%;
 }
 
 .button-primary {
@@ -174,8 +225,8 @@ h1, h2, h3, h4, h5, h6 {
 
 // Map
 .mapboxgl-map {
-	min-height: 200px;
-} 
+	min-height: 150px;
+}
 
 .marker {
 	background-image: url('../assets/map-icon.png');
@@ -213,8 +264,23 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 1rem;
 }
 
-.red-background {
+.info-pane {
 	background-color: $red;
+	color: $not-white;
+	box-shadow: 0px 3px 6px rgb(0 0 0 / 30%);
+	border-radius: 1rem;
+
+
+	a {
+		color: $not-white;
+	}
+
+	@media screen and (max-width: 840px) {
+		background-color: transparent;
+		box-shadow: none;
+		padding: 0 !important;
+		justify-content: space-between !important;
+	}
 }
 
 .rounded-borders {
@@ -240,7 +306,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .light-shadow {
 	box-shadow: 0px 3px 6px rgb(0 0 0 / 30%);
+}
 
-}.bg-white {
+.bg-white {
 	background-color: white;
 }
