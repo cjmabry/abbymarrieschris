@@ -1,14 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Abby Marries Chris</title>
-    <link rel="stylesheet" href="./styles/main.css">
-  </head>
-  <body>	
-	<h1>Hello, world!</h1>
-  </body>
-</html>
+<html lang="en" class="full-height">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Abby Marries Chris</title>
+  <link rel="stylesheet" href="./styles/main.css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+
+<body class="photo-background">
+  <div class="container container-full text-center">
+    <div class="row full-height-mobile">
+      <div class="col-5 info-pane">
+        <div class="row logo-wrapper">
+          <h1>
+            <img class="logo" src="/assets/logo.svg" alt="Abby and Chris are getting married!">
+          </h1>
+        </div>
+
+        <div class="info-wrapper">
+          <div class="row">
+            <div class="col-12">
+              <div class="details-wrapper">
+                <h2>
+                  September 16, 2023 <br>
+                  <span class="subheading">at 5pm</span>
+                </h2> <br>
+
+                <a href="https://goo.gl/maps/MChBSeecQtTxUCMq8">
+                  <h2>
+                    615 Buck Mountail Trail <br>
+                    <span class="subheading">Cookeville, Tennessee 38501</span>
+                  </h2>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-12 buttons-wrapper">
+              <a href="/rsvp.html" class="button button-primary full-width">RSVP</a>
+
+              <a href="https://www.zola.com/registry/abbyandchrisseptember16" class="button button-primary"
+                target="_blank">Registry</a>
+
+              <!-- <a href="/faq.html" class="button button-primary">Info</a> -->
+            </div>
+
+            <div class="col-12">
+              <div class="rounded-borders" id="map"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-7 mobile-hide"></div>
+    </div>
+  </div>
+
+  <!-- Scripts! -->
+  <script src="./scripts/main.js"></script>
+</body>
+
+</html>

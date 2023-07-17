@@ -40,7 +40,12 @@ table{
   border-spacing: 0;
 }
 
-input{
-  -webkit-appearance: none;
+input, select {
   border-radius: 0;
+  font-size: 1rem;
+  background-color: white;
+}
+
+button, select {
+  -webkit-appearance: none;
 }
