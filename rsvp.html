@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="full-height">
 
 <head>
     <meta charset="UTF-8">
@@ -7,77 +7,116 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Abby Marries Chris</title>
     <link rel="stylesheet" href="./styles/main.css">
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js'></script> -->
+    <!-- <link href='https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css' rel='stylesheet' /> -->
 </head>
 
 <body>
-    <div class="row">
-        <div class="col-centered">
-            <img class="logo padding-top-large" src="/assets/logo.svg" alt="Abby and Chris are getting married!">
-        </div>
-    </div>
-
-    <div class="container">
+    <div class="container display-flex">
         <div class="row">
-            <div class="col-12">
-                <h1>RSVP</h1>
-                <h2>Are you in?</h2>
+            <div class="col-centered col-5 info-pane text-center">
+                <div class="logo-wrapper">
+                    <img class="logo padding-top-large" src="/assets/logo.svg"
+                        alt="Abby and Chris are getting married!">
+
+                    <div class="info-wrapper mobile-hide">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="details-wrapper">
+                                    <h2>
+                                        September 16, 2023 <br>
+                                        <span class="subheading">at 5pm</span>
+                                    </h2> <br>
+
+                                    <a href="https://goo.gl/maps/MChBSeecQtTxUCMq8">
+                                        <h2>
+                                            615 Buck Mountail Trail <br>
+                                            <span class="subheading">Cookeville, Tennessee 38501</span>
+                                        </h2>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 buttons-wrapper mobile-hide">
+                        <a href="/" class="button button-primary full-width">Home</a>
+
+                        <a href="https://www.zola.com/registry/abbyandchrisseptember16" class="button button-primary"
+                            target="_blank">Registry</a>
+
+                        <!-- <a href="/faq.html" class="button button-primary">Info</a> -->
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-12">
+            <div class="col-7 form-wrapper">
+
                 <form id="my-form" action="https://formspree.io/f/xnqyewdg" method="POST">
-                    <label>Your Name:</label>
-                    <input type="text" name="name" required />
+                    <div class="form-fields">
+                <!-- TODO: SVG elements above and below -->
+                <div class="text-center margin-bottom-medium">
+                    <h1>RSVP</h1>
+                    <h2 class="boldfinger">Are you in?</h2>
+                </div>
+                    <fieldset class="field-group">
+                        <label>Your Name:</label>
+                        <input type="text" name="name" class="form-control" placeholder="Adam Maitland" required />
+                    </fieldset>
 
-                    <fieldset>
+                    <fieldset class="field-group" required>
                         <legend>Will you be joining us?</legend>
 
                         <div>
                             <input type="radio" name="rsvp" value="yes" checked>
-                            <label for="yes">Totally (Yes)</label>
+                            <label for="yes">Totally <span class="subtext">(Yes)</span></label>
                         </div>
 
                         <div>
                             <input type="radio" name="rsvp" value="no">
-                            <label for="no">Bummer (No)</label>
+                            <label for="no">Bummer <span class="subtext">(No)</span></label>
                         </div>
                     </fieldset>
 
-                    <label for="party_size">How many people are in your party?</label>
+                    <fieldset class="field-group">
+                        <label for="party_size">How many people are in your party?</label>
 
-                    <select name="party_size" id="party_size">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                    </select>
+                        <select name="party_size" id="party_size" class="form-control" required>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select>
+                    </fieldset>
 
+                    <fieldset class="field-group">
+                        <label>Guest Names:</label>
+                        <p class="small">List each guest who will be attending.</p>
+                        <input type="text" name="name" class="form-control" placeholder="Adam and Barabara Maitland" required />
 
-                    <label>Guest Names:</label>
-                    <input type="text" name="name" required />
+                        <p class="notice">Due to limited seating, we have reserved a seat for each person addressed on the envelope of your
+                            invitation. <strong>Please do not RSVP additional guests.</strong></p>
+                    </fieldset>
 
-                    <p>Due to limited seating, we have reserved a seat for each person addressed on the envelope of your invitation. Please do not RSVP additional guests.</p>
-                
-
-                    <p>Leave your preferred method of contact in case we need to get in touch!</p>
+                    <!-- <p>Leave your preferred method of contact in case we need to get in touch!</p>
                     <label>Phone:</label>
-                    <input type="tel" id="phone" name="phone">
+                    <input type="tel" id="phone" class="form-control" name="phone">
                     <label>Email:</label>
-                    <input type="email" name="email" />
+                    <input type="email" name="email" class="form-control" /> -->
 
-                    <p>Anything you want to share with the bride and groom?</p>
-                    <label>Message:</label>
-                    <textarea type="text" name="message" rows="5"></textarea>
-                    <button id="my-form-button">Submit</button>
-                    <p id="my-form-status"></p>
+                    <label>Anything you want to share with Abby and Chris?</label>
+                    <textarea type="text" name="message" rows="5" class="form-control" placeholder="Ooh la la. What do we got here? The Maitlands, uh? Cute couple. Look nice and stupid, too."></textarea>
+                    <button id="my-form-button" class="button button-primary full-width">Submit</button>
                     <input type="text" name="_gotcha" style="display:none" />
-                    <!-- email, phone, name, yes or no, number attending -->
+                    </div>
+                
+                    <div class="form-message">
+                        <div class="text-center margin-bottom-medium">
+                            <h1>Thanks!</h1>
+                            <h2 class="boldfinger">We can't wait to celebrate with you.</h2>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -99,6 +138,9 @@
                 }
             }).then(response => {
                 if (response.ok) {
+                    // hide form
+                    form.classList.add("success");
+                    // show success
                     status.innerHTML = "Thanks for your submission!";
                     form.reset()
                 } else {
