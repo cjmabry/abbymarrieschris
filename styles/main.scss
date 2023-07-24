@@ -276,6 +276,8 @@ h1 {
 	color: $dark-blue;
 	letter-spacing: 0.2rem;
 	font-weight: normal;
+	margin-top: 0.5rem;
+	margin-bottom: 1.5rem;
 }
 
 h2 {
@@ -378,7 +380,7 @@ h2 {
 }
 
 .padding-medium {
-	padding: 2rem;
+	padding: 2rem !important;
 }
 
 .padding-small {
@@ -453,6 +455,10 @@ h2 {
 	color: $red;
 	font-weight: normal;
 	font-style: italic;
+}
+
+.justify-start {
+	justify-content: start !important;
 }
 
 // Forms

@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+html, body, div, span, object, iframe, figure, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -20,10 +20,6 @@ footer, header, nav, section, main {
 
 body {
   line-height: 1;
-}
-
-ol, ul {
-  list-style: none;
 }
 
 blockquote, q {
@@ -211,48 +207,41 @@ a.button:hover {
 
 @media screen and (max-width: 840px) {
   col-1,
-.col-2,
-.col-3,
-.col-4,
-.col-5,
-.col-6,
-.col-7,
-.col-8,
-.col-9,
-.col-10,
-.col-11,
-.col-12 {
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12 {
     width: 100%;
   }
-
   .mobile-hide {
     display: none !important;
   }
-
   .container {
     max-width: 30rem;
     height: 100%;
     padding: 0 1rem;
   }
-
   .full-height-mobile {
     height: 100%;
   }
-
   .col-4-mobile {
     width: 33%;
     background-color: transparent !important;
   }
-
   .info-pane {
     padding-top: 0 !important;
   }
-
   .photo-background {
     background-image: url("../assets/film-photo-18.jpg");
     background-attachment: fixed;
   }
-
   .logo {
     height: 10rem;
     padding: 1rem;
@@ -260,11 +249,9 @@ a.button:hover {
     background: #bf3b15;
     border-radius: 0 0 10px 10px;
   }
-
   .row > div[class*=col-] {
     padding: 0.5rem;
   }
-
   .info-wrapper {
     background-color: #bf3b15;
     border-radius: 10px;
@@ -272,14 +259,12 @@ a.button:hover {
     margin-top: 16rem;
     margin-bottom: 1rem;
   }
-
   .details-wrapper {
     background: #bf3b15;
     padding: 0.5rem;
     border-radius: 10px;
     margin-bottom: 0 !important;
   }
-
   .form-wrapper {
     padding: 1rem !important;
   }
@@ -319,6 +304,8 @@ h1 {
   color: #121c3e;
   letter-spacing: 0.2rem;
   font-weight: normal;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 h2 {
@@ -416,7 +403,7 @@ h2.boldfinger {
 }
 
 .padding-medium {
-  padding: 2rem;
+  padding: 2rem !important;
 }
 
 .padding-small {
@@ -488,6 +475,10 @@ h2.boldfinger {
   color: #bf3b15;
   font-weight: normal;
   font-style: italic;
+}
+
+.justify-start {
+  justify-content: start !important;
 }
 
 form .form-message {
