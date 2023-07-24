@@ -272,6 +272,9 @@ a.button:hover {
 .details-wrapper {
   margin-bottom: 1rem;
 }
+.details-wrapper h2 {
+  margin: 0;
+}
 
 .buttons-wrapper {
   flex-direction: row !important;
