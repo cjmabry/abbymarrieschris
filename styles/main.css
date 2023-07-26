@@ -124,7 +124,11 @@ a.button:hover {
 .logo {
   width: 70%;
   height: auto;
-  padding: 1rem 0;
+  padding: 2rem 0 0;
+}
+
+.logo-wrapper h1 {
+  margin: 0;
 }
 
 .container {
