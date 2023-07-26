@@ -15,8 +15,8 @@
             <div class="col-centered col-5 info-pane text-center">
                 <div class="logo-wrapper">
                     <a href="/">
-                    <img class="logo padding-top-large" src="/assets/logo.svg"
-                        alt="Abby and Chris are getting married!">
+                        <img class="logo padding-top-large" src="/assets/logo.svg"
+                            alt="Abby and Chris are getting married!">
                     </a>
                     <div class="info-wrapper mobile-hide">
                         <div class="row">
@@ -52,63 +52,67 @@
 
                 <form id="my-form" action="https://formspree.io/f/xnqyewdg" method="POST">
                     <div class="form-fields">
-                <!-- TODO: SVG elements above and below -->
-                <div class="text-center margin-bottom-medium">
-                    <h1>RSVP</h1>
-                    <h2 class="boldfinger">Are you in?</h2>
-                </div>
-                    <fieldset class="field-group">
-                        <label>Your Name:</label>
-                        <input type="text" name="name" class="form-control" placeholder="Adam Maitland" required />
-                    </fieldset>
-
-                    <fieldset class="field-group" required>
-                        <legend>Will you be joining us?</legend>
-
-                        <div>
-                            <input type="radio" name="rsvp" value="yes" checked>
-                            <label for="yes">Totally <span class="subtext">(Yes)</span></label>
+                        <!-- TODO: SVG elements above and below -->
+                        <div class="text-center margin-bottom-medium filigree">
+                            <h1>RSVP</h1>
+                            <h2 class="boldfinger">Are you in?</h2>
                         </div>
+                        <fieldset class="field-group">
+                            <label>Your Name:</label>
+                            <input type="text" name="name" class="form-control" placeholder="Adam Maitland" required />
+                        </fieldset>
 
-                        <div>
-                            <input type="radio" name="rsvp" value="no">
-                            <label for="no">Bummer <span class="subtext">(No)</span></label>
-                        </div>
-                    </fieldset>
+                        <fieldset class="field-group" required>
+                            <legend>Will you be joining us?</legend>
 
-                    <fieldset class="field-group">
-                        <label for="party_size">How many people are in your party?</label>
+                            <div>
+                                <input type="radio" name="rsvp" value="yes" checked>
+                                <label for="yes">Totally <span class="subtext">(Yes)</span></label>
+                            </div>
 
-                        <select name="party_size" id="party_size" class="form-control" required>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
-                    </fieldset>
+                            <div>
+                                <input type="radio" name="rsvp" value="no">
+                                <label for="no">Bummer <span class="subtext">(No)</span></label>
+                            </div>
+                        </fieldset>
 
-                    <fieldset class="field-group">
-                        <label>Guest Names:</label>
-                        <p class="small">List each guest who will be attending.</p>
-                        <input type="text" name="name" class="form-control" placeholder="Adam and Barabara Maitland" required />
+                        <fieldset class="field-group">
+                            <label for="party_size">How many people are in your party?</label>
 
-                        <p class="notice">Due to limited seating, we have reserved a seat for each person addressed on the envelope of your
-                            invitation. <strong>Please do not RSVP additional guests.</strong></p>
-                    </fieldset>
+                            <select name="party_size" id="party_size" class="form-control" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </fieldset>
 
-                    <label>Anything you want to share with Abby and Chris?</label>
-                    <textarea type="text" name="message" rows="5" class="form-control" placeholder="Ooh la la. What do we got here? The Maitlands, uh? Cute couple. Look nice and stupid, too."></textarea>
-                    <button id="my-form-button" class="button button-primary full-width">Submit</button>
-                    <input type="text" name="_gotcha" style="display:none" />
+                        <fieldset class="field-group">
+                            <label>Guest Names:</label>
+                            <p class="small">List each guest who will be attending.</p>
+                            <input type="text" name="name" class="form-control" placeholder="Adam and Barabara Maitland"
+                                required />
+
+                            <p class="notice">Due to limited seating, we have reserved a seat for each person addressed
+                                on the envelope of your
+                                invitation. <strong>Please do not RSVP additional guests.</strong></p>
+                        </fieldset>
+
+                        <label>Anything you want to share with Abby and Chris?</label>
+                        <textarea type="text" name="message" rows="5" class="form-control"
+                            placeholder="Ooh la la. What do we got here? The Maitlands, uh? Cute couple. Look nice and stupid, too."></textarea>
+                        <button id="my-form-button" class="button button-primary full-width">Submit</button>
+                        <input type="text" name="_gotcha" style="display:none" />
                     </div>
-                
+
                     <div class="form-message">
-                        <div class="text-center margin-bottom-medium">
+                        <div class="filigree margin-bottom-medium">
                             <h1>Thanks!</h1>
-                            <h2 class="boldfinger">We can't wait to celebrate with you.</h2>
+                            <h2 class="boldfinger success-message" id="status"></h2>
                         </div>
+                        <img src="/assets/ollie.png" alt="Ollie says thanks!" class="success-image">
                     </div>
                 </form>
             </div>
@@ -119,10 +123,21 @@
     <script>
         var form = document.getElementById("my-form");
 
+        function getRadioValue(name) {
+            var radio_input = document.getElementsByName(name);
+
+            for (var i = 0; iLen = radio_input.length; i < iLen, i++) {
+                if (radio_input[i].checked) {
+                    return radio_input[i].value;
+                }
+            }
+        }
+
         async function handleSubmit(event) {
             event.preventDefault();
-            var status = document.getElementById("my-form-status");
+            var status = document.getElementById("status");
             var data = new FormData(event.target);
+            var rsvp = getRadioValue("rsvp");
             fetch(event.target.action, {
                 method: form.method,
                 body: data,
@@ -131,10 +146,12 @@
                 }
             }).then(response => {
                 if (response.ok) {
-                    // hide form
                     form.classList.add("success");
-                    // show success
-                    status.innerHTML = "Thanks for your submission!";
+                    if (rsvp == "yes") {
+                        status.innerHTML = "We can't wait to see you!";
+                    } else if (rsvp == "no") {
+                        status.innerHTML = "We'll miss you!"
+                    }
                     form.reset()
                 } else {
                     response.json().then(data => {

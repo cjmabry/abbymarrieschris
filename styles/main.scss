@@ -242,6 +242,7 @@ a.button {
 
 .details-wrapper {
 	margin-bottom: 1rem;
+
 	h2 {
 		margin: 0;
 	}
@@ -304,6 +305,41 @@ h2 {
 	font-size: 1.125rem;
 	font-style: italic;
 	font-weight: normal;
+}
+
+.filigree {
+	text-align: center;
+
+	h1 {
+		margin-bottom: 0;
+	}
+
+	h2 {
+		margin-top: 0;
+	}
+
+	&:before {
+		content:"";
+		display:flex;
+		height: 40px;
+		width: 60px;
+		background-image: url('../assets/filigree.svg');
+		background-size: cover;
+		background-position: center;
+		margin: auto;
+	}
+
+	&:after {
+        content:"";
+        display:flex;
+        height: 40px;
+        width: 60px;
+        background-image: url('../assets/filigree.svg');
+        background-size: cover;
+        background-position: center;
+        margin: auto;
+		transform: rotate(180deg);
+	}
 }
 
 .subtitle,
@@ -531,6 +567,11 @@ textarea {
 input::placeholder,
 textarea::placeholder {
 	color: transparentize($dark-blue, 0.6);
+}
+
+.success-image {
+	width: 100%;
+    height: auto;
 }
 
 form.success {

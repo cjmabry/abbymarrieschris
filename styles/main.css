@@ -333,6 +333,37 @@ h2.boldfinger {
   font-weight: normal;
 }
 
+.filigree {
+  text-align: center;
+}
+.filigree h1 {
+  margin-bottom: 0;
+}
+.filigree h2 {
+  margin-top: 0;
+}
+.filigree:before {
+  content: "";
+  display: flex;
+  height: 40px;
+  width: 60px;
+  background-image: url("../assets/filigree.svg");
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+}
+.filigree:after {
+  content: "";
+  display: flex;
+  height: 40px;
+  width: 60px;
+  background-image: url("../assets/filigree.svg");
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+  transform: rotate(180deg);
+}
+
 .subtitle,
 .button {
   font-family: "Boldfinger", sans-serif;
@@ -548,6 +579,11 @@ textarea {
 input::placeholder,
 textarea::placeholder {
   color: rgba(18, 28, 62, 0.4);
+}
+
+.success-image {
+  width: 100%;
+  height: auto;
 }
 
 form.success .form-fields {
