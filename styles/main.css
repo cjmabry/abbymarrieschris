@@ -522,6 +522,9 @@ h2.boldfinger {
 form .form-message {
   display: none;
 }
+form .form-message h1 {
+  font-size: 4rem;
+}
 
 input,
 textarea {
