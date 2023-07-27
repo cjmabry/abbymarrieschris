@@ -92,8 +92,8 @@
                         <fieldset class="field-group" id="guest_names_fieldset">
                             <label>Guest Names:</label>
                             <p>List each guest who will be attending.</p>
-                            <input type="text" name="guest_names" class="form-control" placeholder="Adam and Barabara Maitland"
-                                required id="guest_names"/>
+                            <input type="text" name="guest_names" class="form-control"
+                                placeholder="Adam and Barabara Maitland" required id="guest_names" />
 
                             <p class="notice">Due to limited seating, we have reserved a seat for each person addressed
                                 on the envelope of your
@@ -108,7 +108,8 @@
                                 class="form-control" required>
 
                             <label for="email-address">Email Address</label>
-                            <input type="email" name="_replyto" id="email_address" placeholder="beetlegeuse@gmail.com" class="form-control" required>
+                            <input type="email" name="_replyto" id="email_address" placeholder="beetlegeuse@gmail.com"
+                                class="form-control" required>
                         </fieldset>
 
                         <label>Anything you want to share with Abby and Chris?</label>
@@ -138,16 +139,16 @@
 
         // fieldsets and inputs that should be hidden on a No RSVP
         var conditional_fieldsets = [
-                document.getElementById("party_size_fieldset"),
-                document.getElementById("guest_names_fieldset"),
-                document.getElementById("contact_info_fieldset")
+            document.getElementById("party_size_fieldset"),
+            document.getElementById("guest_names_fieldset"),
+            document.getElementById("contact_info_fieldset")
         ]
 
         var conditional_inputs = [
-                document.getElementById("party_size"),
-                document.getElementById("guest_names"),
-                document.getElementById("email_address"),
-                document.getElementById("telephone")
+            document.getElementById("party_size"),
+            document.getElementById("guest_names"),
+            document.getElementById("email_address"),
+            document.getElementById("telephone")
         ]
 
         function getRadioValue(name) {
