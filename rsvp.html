@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Abby Marries Chris</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/main.css?c=1">
 </head>
 
 <body>
@@ -52,31 +52,31 @@
 
                 <form id="my-form" action="https://formspree.io/f/xnqyewdg" method="POST">
                     <div class="form-fields">
-                        <!-- TODO: SVG elements above and below -->
                         <div class="text-center margin-bottom-medium filigree">
                             <h1>RSVP</h1>
                             <h2 class="boldfinger">Are you in?</h2>
                         </div>
+
                         <fieldset class="field-group">
                             <label>Your Name:</label>
                             <input type="text" name="name" class="form-control" placeholder="Adam Maitland" required />
                         </fieldset>
 
-                        <fieldset class="field-group" required>
+                        <fieldset class="field-group" id="rsvp_fieldset">
                             <legend>Will you be joining us?</legend>
 
                             <div>
-                                <input type="radio" name="rsvp" value="yes" checked>
-                                <label for="yes">Totally <span class="subtext">(Yes)</span></label>
+                                <input type="radio" name="rsvp" value="yes" checked id="rsvp_yes">
+                                <label for="rsvp_yes">Totally <span class="subtext">(Yes)</span></label>
                             </div>
 
                             <div>
-                                <input type="radio" name="rsvp" value="no">
-                                <label for="no">Bummer <span class="subtext">(No)</span></label>
+                                <input type="radio" name="rsvp" value="no" id="rsvp_no">
+                                <label for="rsvp_no">Bummer <span class="subtext">(No)</span></label>
                             </div>
                         </fieldset>
 
-                        <fieldset class="field-group">
+                        <fieldset class="field-group" id="party_size_fieldset">
                             <label for="party_size">How many people are in your party?</label>
 
                             <select name="party_size" id="party_size" class="form-control" required>
@@ -89,15 +89,26 @@
                             </select>
                         </fieldset>
 
-                        <fieldset class="field-group">
+                        <fieldset class="field-group" id="guest_names_fieldset">
                             <label>Guest Names:</label>
-                            <p class="small">List each guest who will be attending.</p>
-                            <input type="text" name="name" class="form-control" placeholder="Adam and Barabara Maitland"
-                                required />
+                            <p>List each guest who will be attending.</p>
+                            <input type="text" name="guest_names" class="form-control" placeholder="Adam and Barabara Maitland"
+                                required id="guest_names"/>
 
                             <p class="notice">Due to limited seating, we have reserved a seat for each person addressed
                                 on the envelope of your
                                 invitation. <strong>Please do not RSVP additional guests.</strong></p>
+                        </fieldset>
+
+                        <fieldset class="field-group" id="contact_info_fieldset">
+                            <label>Contact Info</label>
+                            <p>What is your email address and phone number in case we need to get in touch?</p>
+                            <label for="telephone">Phone Number</label>
+                            <input type="telephone" name="telephone" id="telephone" placeholder="(555) 555-5555"
+                                class="form-control" required>
+
+                            <label for="email-address">Email Address</label>
+                            <input type="email" name="_replyto" id="email_address" placeholder="beetlegeuse@gmail.com" class="form-control" required>
                         </fieldset>
 
                         <label>Anything you want to share with Abby and Chris?</label>
@@ -122,22 +133,63 @@
     <!-- Scripts! -->
     <script>
         var form = document.getElementById("my-form");
+        var rsvp_value;
+        var rsvp_fieldset = document.getElementById("rsvp_fieldset");
+
+        // fieldsets and inputs that should be hidden on a No RSVP
+        var conditional_fieldsets = [
+                document.getElementById("party_size_fieldset"),
+                document.getElementById("guest_names_fieldset"),
+                document.getElementById("contact_info_fieldset")
+        ]
+
+        var conditional_inputs = [
+                document.getElementById("party_size"),
+                document.getElementById("guest_names"),
+                document.getElementById("email_address"),
+                document.getElementById("telephone")
+        ]
 
         function getRadioValue(name) {
             var radio_input = document.getElementsByName(name);
 
-            for (var i = 0; iLen = radio_input.length; i < iLen, i++) {
+            for (var i = 0; i < radio_input.length; i++) {
                 if (radio_input[i].checked) {
                     return radio_input[i].value;
                 }
             }
         }
 
+        function handleRSVP() {
+            rsvp_value = getRadioValue("rsvp");
+
+            if (rsvp_value == "no") {
+                for (var i = 0; i < conditional_fieldsets.length; i++) {
+                    conditional_fieldsets[i].style.display = "none";
+                }
+
+                for (var i = 0; i < conditional_inputs.length; i++) {
+                    conditional_inputs[i].removeAttribute("required");
+                }
+
+            } else {
+                for (var i = 0; i < conditional_fieldsets.length; i++) {
+                    conditional_fieldsets[i].style.display = "block";
+                }
+
+                for (var i = 0; i < conditional_inputs.length; i++) {
+                    conditional_inputs[i].setAttribute("required", "");
+                }
+            }
+        }
+
+        rsvp_fieldset.addEventListener("click", handleRSVP)
+
         async function handleSubmit(event) {
             event.preventDefault();
             var status = document.getElementById("status");
             var data = new FormData(event.target);
-            var rsvp = getRadioValue("rsvp");
+            rsvp_value = getRadioValue("rsvp");
             fetch(event.target.action, {
                 method: form.method,
                 body: data,
@@ -147,9 +199,9 @@
             }).then(response => {
                 if (response.ok) {
                     form.classList.add("success");
-                    if (rsvp == "yes") {
+                    if (rsvp_value == "yes") {
                         status.innerHTML = "We can't wait to see you!";
-                    } else if (rsvp == "no") {
+                    } else if (rsvp_value == "no") {
                         status.innerHTML = "We'll miss you!"
                     }
                     form.reset()
