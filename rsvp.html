@@ -104,7 +104,7 @@
                             <label>Contact Info</label>
                             <p>What is your email address and phone number in case we need to get in touch?</p>
                             <label for="telephone">Phone Number</label>
-                            <input type="telephone" name="telephone" id="telephone" placeholder="(555) 555-5555"
+                            <input type="tel" name="telephone" id="telephone" placeholder="(555) 555-5555"
                                 class="form-control" required>
 
                             <label for="email-address">Email Address</label>
@@ -115,7 +115,8 @@
                         <label>Anything you want to share with Abby and Chris?</label>
                         <textarea type="text" name="message" rows="5" class="form-control"
                             placeholder="Ooh la la. What do we got here? The Maitlands, uh? Cute couple. Look nice and stupid, too."></textarea>
-                        <button id="my-form-button" class="button button-primary full-width">Submit</button>
+                            <p class="notice error display-none" id="errors"></p>
+                            <button id="my-form-button" class="button button-primary full-width">Submit</button>
                         <input type="text" name="_gotcha" style="display:none" />
                     </div>
 
@@ -189,6 +190,7 @@
         async function handleSubmit(event) {
             event.preventDefault();
             var status = document.getElementById("status");
+            var errors = document.getElementById("errors");
             var data = new FormData(event.target);
             rsvp_value = getRadioValue("rsvp");
             fetch(event.target.action, {
@@ -209,10 +211,12 @@
                 } else {
                     response.json().then(data => {
                         if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                            errors.innerHTML = "<strong>Error:</strong> We had trouble submitting your form. The error we received was:<br><br>" + data["errors"].map(error => error["message"]).join(", ") + "<br><br>Try double-checking your info and submitting again, or contact chris at cjmab28@gmail.com for help."
                         } else {
-                            status.innerHTML = "Oops! There was a problem submitting your form"
+                            errors.innerHTML = "<strong>Error:</strong> We had trouble submitting your form.<br><br>Try submitting again, or contact chris at cjmab28@gmail.com for help."
                         }
+
+                        errors.classList.remove("display-none");
                     })
                 }
             }).catch(error => {

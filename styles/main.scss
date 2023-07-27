@@ -400,6 +400,10 @@ p {
 	display: flex;
 }
 
+.display-none {
+	display: none;
+}
+
 .margin-vertical-small {
 	margin-top: 0.5rem;
 	margin-bottom: 0.5rem;
@@ -590,4 +594,10 @@ form.success {
 	.form-message {
 		display: block;
 	}
+}
+
+.error {
+	background-color: $red;
+	border-color: $not-white;
+	color: $not-white;
 }
