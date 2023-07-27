@@ -141,6 +141,7 @@ a.button:hover {
 }
 
 .row {
+  width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
 }
